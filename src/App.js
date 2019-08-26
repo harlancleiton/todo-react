@@ -8,7 +8,9 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Header/>
-                <Routes/>
+                <div style={{padding: 20}}>
+                    <Routes/>
+                </div>
             </BrowserRouter>
         </div>
     );

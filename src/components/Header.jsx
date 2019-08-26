@@ -1,24 +1,33 @@
 import React, {Component} from 'react';
-import {Nav, Navbar} from "react-bootstrap";
-import {LinkContainer} from 'react-router-bootstrap'
+import AppBar from "@material-ui/core/AppBar";
+import {Toolbar, Typography} from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from '@material-ui/icons/Menu';
+import Button from "@material-ui/core/Button";
+import './Header.css';
+import {Link} from "react-router-dom";
 
 class Header extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
-                <LinkContainer to="/"><Navbar.Brand>Minhas Tarefas</Navbar.Brand></LinkContainer>
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                    <Nav>
-                        <LinkContainer to="/todos">
-                            <Nav.Link>Tarefas</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/about">
-                            <Nav.Link>Sobre</Nav.Link>
-                        </LinkContainer>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <div>
+                <AppBar position={"static"}>
+                    <Toolbar>
+                        <IconButton edge={"start"} color={"inherit"} aria-label={"menu"}>
+                            <MenuIcon/>
+                        </IconButton>
+                        <Typography variant={"h6"} className={"title"}>
+                            Minhas Tarefas
+                        </Typography>
+                        <Button color={"inherit"} component={Link} to={"/todos"}>
+                            Tarefas
+                        </Button>
+                        <Button color={"inherit"} component={Link} to={"/about"}>
+                            Sobre
+                        </Button>
+                    </Toolbar>
+                </AppBar>
+            </div>
         );
     }
 }
